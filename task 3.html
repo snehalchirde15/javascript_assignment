@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name • Portfolio</title>
+  <style>
+    :root{
+      --bg:#0f1320; --card:#161a2a; --text:#e8ecff; --muted:#a9b1d6;
+      --brand:#6c8cff; --brand-2:#77ffd9;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font:16px/1.6 system-ui,Segoe UI,Roboto,Arial;
+      color:var(--text); background:linear-gradient(180deg,#0d1220, #0f1320 30%);
+    }
+    /* Header / Nav */
+    header{
+      position:sticky; top:0; z-index:50;
+      background:rgba(15,19,32,.75); backdrop-filter: blur(10px);
+      border-bottom:1px solid #1f2640;
+    }
+    .nav{
+      max-width:1100px; margin:auto; padding:10px 16px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand{font-weight:700; letter-spacing:.3px}
+    .brand b{background:linear-gradient(90deg,var(--brand),var(--brand-2));
+      -webkit-background-clip:text; background-clip:text; color:transparent}
+    .menu{display:flex; gap:18px}
+    .menu a{
+      color:var(--muted); text-decoration:none; padding:8px 10px; border-radius:10px;
+      transition:transform .18s ease, background .18s ease, color .18s ease;
+    }
+    .menu a:hover{background:#1b2140; color:#fff; transform:translateY(-1px)}
+    .hamburger{display:none; cursor:pointer; font-size:24px}
+
+    /* Hero */
+    .container{max-width:1100px; margin:auto; padding:32px 16px}
+    .hero{
+      display:grid; grid-template-columns:1.2fr .8fr; gap:24px; align-items:center;
+      min-height:68vh;
+    }
+    .hero h1{font-size:clamp(28px,6vw,52px); margin:.2em 0}
+    .hero p{color:var(--muted)}
+    .cta{margin-top:16px; display:flex; gap:12px; flex-wrap:wrap}
+    .btn{
+      border:0; border-radius:14px; padding:12px 16px; cursor:pointer;
+      background:var(--brand); color:#081028; font-weight:700;
+      box-shadow:0 8px 24px rgba(108,140,255,.25);
+      transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+    }
+    .btn.secondary{background:#232a4a; color:#dbe3ff; box-shadow:none}
+    .btn:hover{transform:translateY(-2px)}
+    .card{
+      background:var(--card); border:1px solid #1f2640; border-radius:20px; padding:18px;
+      box-shadow:0 10px 30px rgba(3,10,30,.25);
+    }
+
+    /* Sections */
+    section{padding:64px 0}
+    section h2{font-size:28px; margin:0 0 14px}
+    .grid{display:grid; gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+
+    /* Project cards */
+    .project{display:flex; flex-direction:column; gap:8px; position:relative; overflow:hidden}
+    .project:hover{transform:translateY(-3px); transition:transform .2s ease}
+    .project .thumb{
+      height:140px; border-radius:14px; background:#0f172a;
+      background-size:cover; background-position:center; border:1px solid #253057;
+    }
+    .chips{display:flex; gap:8px; flex-wrap:wrap}
+    .chip{font-size:12px; padding:4px 8px; border-radius:999px; background:#20274a; color:#d0d8ff}
+
+    /* Contact */
+    form{display:grid; gap:10px}
+    input,textarea{
+      width:100%; padding:12px 14px; border-radius:12px; border:1px solid #27305a;
+      background:#11172e; color:#e8ecff; outline:none;
+    }
+    textarea{min-height:120px; resize:vertical}
+    .footer{padding:24px 16px; text-align:center; color:#9aa3cf; border-top:1px solid #1f2640}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .grid.cols-3{grid-template-columns:1fr 1fr}
+      .grid.cols-2{grid-template-columns:1fr}
+    }
+    @media (max-width:720px){
+      .menu{display:none}
+      .menu.open{display:flex; position:absolute; top:56px; right:16px; flex-direction:column;
+        background:#121733; padding:12px; border:1px solid #253057; border-radius:14px;}
+      .hamburger{display:block}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand"><b>Your</b> Name</div>
+      <nav class="menu" id="menu">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </nav>
+      <div class="hamburger" id="hamburger">☰</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <p>👋 Hi, I’m</p>
+        <h1>Your Name — Frontend / Android Developer</h1>
+        <p>I build fast, accessible web apps and Android experiences. Passionate about clean UI, performance, and delightful UX.</p>
+        <div class="cta">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn secondary" href="#contact">Contact Me</a>
+        </div>
+      </div>
+      <div class="card">
+        <strong>Now available for internships & freelance.</strong>
+        <p style="margin:8px 0 0;color:var(--muted)">Based in Pune • Open to remote</p>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="card">
+        <p>I’m a developer who loves crafting simple, scalable interfaces. I enjoy Java, HTML/CSS/JS, and I’m learning ML. Outside code, I travel ✈️ and explore new places.</p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="grid cols-3">
+        <div class="card"><strong>Frontend</strong><p class="chips">
+          <span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span><span class="chip">Responsive UI</span>
+        </p></div>
+        <div class="card"><strong>Android</strong><p class="chips">
+          <span class="chip">Java</span><span class="chip">Android Studio</span><span class="chip">XML Layouts</span>
+        </p></div>
+        <div class="card"><strong>Tools</strong><p class="chips">
+          <span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Figma</span>
+        </p></div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid cols-2">
+        <article class="card project">
+          <div class="thumb" style="background-image:url('https://picsum.photos/seed/p1/800/450');"></div>
+          <h3>Incident Management Web App</h3>
+          <p class="chips">
+            <span class="chip">Java</span><span class="chip">HTML</span><span class="chip">CSS</span>
+          </p>
+          <p class="muted">Routes reports to police/fire automatically and saves response time.</p>
+          <a class="btn secondary" href="#" target="_blank">Live Demo</a>
+        </article>
+
+        <article class="card project">
+          <div class="thumb" style="background-image:url('https://picsum.photos/seed/p2/800/450');"></div>
+          <h3>JS Music Player</h3>
+          <p class="chips">
+            <span class="chip">JavaScript</span><span class="chip">Audio API</span>
+          </p>
+          <p class="muted">Custom player with playlist, progress & volume controls.</p>
+          <a class="btn secondary" href="#" target="_blank">Source Code</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <form onsubmit="event.preventDefault(); alert('Thanks! I will reply soon.'); this.reset();">
+          <div class="grid cols-2">
+            <input placeholder="Your name" required />
+            <input type="email" placeholder="Email" required />
+          </div>
+          <textarea placeholder="Message" required></textarea>
+          <button class="btn" type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© <span id="y"></span> Your Name • Built with HTML, CSS & JS</footer>
+
+  <script>
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    hamburger.addEventListener('click', () => menu.classList.toggle('open'));
+
+    // Close menu when clicking a link (mobile)
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menu.classList.remove('open');
+    }));
+
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
